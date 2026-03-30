@@ -1,0 +1,78 @@
+/* ============================================
+   Bulk Rename & Clean Tool - Custom Styles
+   ============================================ */
+
+/* This file contains only custom styles not covered by Tailwind CSS */
+
+/* Drag and drop visual feedback */
+#dropZone.drag-over {
+    border-color: #006a61 !important; /* secondary color */
+    background-color: rgba(137, 245, 231, 0.05) !important;
+}
+
+/* Table row dragging styles */
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+.drag-handle {
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+/* Progress bar animation */
+.progress-bar-fill {
+    transition: width 0.3s ease;
+}
+
+/* Notification animations */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+.notification {
+    animation: slideIn 0.3s ease;
+}
+
+.notification.hiding {
+    animation: slideOut 0.3s ease;
+}
+
+/* Ensure proper dark mode transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar for table */
+.overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: #e6eeff;
+    border-radius: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+.dark .overflow-x-auto::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.dark .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #4d44e3;
+}
