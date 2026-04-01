@@ -1,0 +1,337 @@
+<!-- Bulk Rename & Clean Tool - Help Guide -->
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bulk Rename & Clean Tool - Help Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#0d1c2e",
+              "inverse-primary": "#c3c0ff",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#713700",
+              "on-tertiary-container": "#ffc7a2",
+              "secondary": "#006a61",
+              "primary-container": "#493fdf",
+              "tertiary-container": "#8f4700",
+              "outline-variant": "#c5c5d4",
+              "outline": "#757684",
+              "tertiary-fixed": "#ffdcc6",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f8f9ff",
+              "surface-container": "#e6eeff",
+              "error": "#ba1a1a",
+              "surface-variant": "#d5e3fc",
+              "primary-fixed": "#e2dfff",
+              "surface-dim": "#ccdbf3",
+              "inverse-surface": "#233144",
+              "primary": "#2f1bc8",
+              "tertiary-fixed-dim": "#ffb784",
+              "on-secondary": "#ffffff",
+              "background": "#f8f9ff",
+              "on-background": "#0d1c2e",
+              "surface-container-high": "#dce9ff",
+              "secondary-fixed": "#89f5e7",
+              "surface-tint": "#4d44e3",
+              "on-primary-fixed": "#0f0069",
+              "on-primary-container": "#d0cdff",
+              "on-tertiary-fixed": "#301400",
+              "on-surface-variant": "#454652",
+              "secondary-container": "#86f2e4",
+              "secondary-fixed-dim": "#6bd8cb",
+              "on-secondary-container": "#006f66",
+              "surface-container-highest": "#d5e3fc",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-bright": "#f8f9ff",
+              "tertiary": "#6c3400",
+              "on-secondary-fixed-variant": "#005049",
+              "primary-fixed-dim": "#c3c0ff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed": "#00201d",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.05);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shape-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to));
+            filter: blur(60px);
+            opacity: 0.5;
+            border-radius: 40%;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(30px, -50px) rotate(120deg) scale(1.1); }
+            66% { transform: translate(-20px, 20px) rotate(240deg) scale(0.9); }
+        }
+
+        .dark body {
+            background-color: #020617;
+            color: #f8f9ff;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { 
+            background: rgba(47, 27, 200, 0.2); 
+            border-radius: 10px; 
+        }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(195, 192, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased transition-colors duration-300 relative">
+<!-- Background 3D Elements -->
+<div class="shape-container">
+<div class="shape w-[500px] h-[500px] -top-20 -left-20 from-primary/20 to-secondary/20"></div>
+<div class="shape w-[400px] h-[400px] top-1/2 -right-20 from-primary-container/20 to-inverse-primary/20" style="animation-delay: -5s; animation-duration: 30s;"></div>
+<div class="shape w-[250px] h-[250px] bottom-20 left-1/4 from-secondary/15 to-primary/15" style="animation-delay: -12s; animation-duration: 20s;"></div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-white/30 dark:bg-slate-950/40 backdrop-blur-xl flex justify-between items-center w-full px-6 py-2.5 top-0 sticky z-50 border-b border-white/30 dark:border-white/10 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-xl" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="text-lg font-bold tracking-tight text-on-surface dark:text-white font-headline">Help Guide</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<button onclick="window.close()" class="text-on-surface-variant dark:text-slate-400 text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors">Close</button>
+</nav>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 dark:hover:bg-white/5 transition-colors text-on-surface-variant dark:text-slate-300" onclick="document.documentElement.classList.toggle('dark')" title="Toggle dark mode">
+<span class="material-symbols-outlined text-xl block dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 md:px-6 py-8 relative z-10">
+<div class="flex flex-col gap-8">
+<!-- Hero Section -->
+<section class="text-center space-y-4 pt-4">
+<h1 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-on-surface dark:text-white leading-tight">
+                    Master Your <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:from-inverse-primary dark:to-secondary-fixed">Digital Assets</span>
+                </h1>
+<p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto text-base font-medium">
+                    Everything you need to know about using the Bulk Rename & Clean Tool to organize your files with professional precision.
+                </p>
+</section>
+<!-- Quick Start Guide -->
+<div class="glass-panel p-8 rounded-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl">rocket_launch</span>
+<h2 class="text-2xl font-headline font-black tracking-tight dark:text-white">Quick Start Guide</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full bg-primary dark:bg-primary-container text-on-primary flex items-center justify-center font-headline font-black text-lg shadow-lg shadow-primary/20 dark:shadow-indigo-500/20">1</div>
+<h3 class="font-headline font-bold text-lg leading-tight dark:text-slate-100">Drop Files</h3>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm leading-relaxed">Drag your messy files directly into the browser. No uploads needed - everything stays on your computer.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full bg-primary dark:bg-primary-container text-on-primary flex items-center justify-center font-headline font-black text-lg shadow-lg shadow-primary/20 dark:shadow-indigo-500/20">2</div>
+<h3 class="font-headline font-bold text-lg leading-tight dark:text-slate-100">Set Rules</h3>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm leading-relaxed">Define a base filename, add date/time stamps, filter by type, and sort your files. Use uppercase/lowercase buttons for case conversion.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full bg-primary dark:bg-primary-container text-on-primary flex items-center justify-center font-headline font-black text-lg shadow-lg shadow-primary/20 dark:shadow-indigo-500/20">3</div>
+<h3 class="font-headline font-bold text-lg leading-tight dark:text-slate-100">Export</h3>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm leading-relaxed">Review the live preview and download your perfectly organized files as a clean ZIP archive.</p>
+</div>
+</div>
+</div>
+<!-- Features Section -->
+<div class="glass-panel p-8 rounded-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl">star</span>
+<h2 class="text-2xl font-headline font-black tracking-tight dark:text-white">Key Features</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">100% Client-Side</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">All processing happens in your browser. Your files never leave your computer.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">Live Preview</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">See changes instantly before applying them. Real-time updates as you type.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">Drag & Drop</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">Intuitive file upload with drag-and-drop support. Reorder files by dragging rows.</p>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">Filter & Sort</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">Filter by file type (images, videos, documents, audio) and sort by various criteria.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">Undo Support</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">Made a mistake? Use the undo button to revert the last rename operation.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary dark:text-emerald-400 text-xl">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-base dark:text-slate-100">Dark Mode</h4>
+<p class="text-sm text-on-surface-variant dark:text-slate-400">Easy on the eyes with automatic dark mode support. Toggle via the button in the header.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- How to Use -->
+<div class="glass-panel p-8 rounded-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl">menu_book</span>
+<h2 class="text-2xl font-headline font-black tracking-tight dark:text-white">How to Use</h2>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">upload_file</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-1 dark:text-slate-100">Uploading Files</h4>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm">Click the central drop zone or drag files from your file explorer. You can select multiple files at once. The tool supports images, documents, videos, audio files, and more.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">edit</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-1 dark:text-slate-100">Configuring Rename Rules</h4>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm">Enter a base filename (e.g., "Project_Asset"). Optionally add a date/time stamp. Use the case conversion buttons to make all filenames uppercase or lowercase. The preview updates in real-time.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">download</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-1 dark:text-slate-100">Downloading Results</h4>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm">Once you're satisfied with the preview, click "Download ZIP" to get a compressed archive containing all renamed files. The original files remain untouched on your system.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">settings</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg mb-1 dark:text-slate-100">Advanced Options</h4>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm">Filter files by type to work with specific categories. Sort files by name, size, or type. Drag rows in the preview table to manually reorder files before renaming.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Privacy -->
+<div class="glass-panel p-8 rounded-2xl bg-primary/5 dark:bg-primary/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl">security</span>
+<h2 class="text-2xl font-headline font-black tracking-tight dark:text-white">Privacy & Security</h2>
+</div>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm leading-relaxed mb-4">This tool processes all files locally in your browser using JavaScript. No files are uploaded to any server. Your data stays completely private and secure. We do not collect any telemetry or usage data.</p>
+<div class="flex items-center gap-2 text-sm font-bold text-primary dark:text-inverse-primary">
+<span class="material-symbols-outlined">verified_user</span>
+100% Client-Side Processing
+</div>
+</div>
+<!-- Back Button -->
+<div class="text-center pt-4">
+<button onclick="window.history.back()" class="bg-primary dark:bg-primary-container text-on-primary dark:text-primary-fixed-dim px-8 py-3 rounded-xl font-bold hover:brightness-110 hover:shadow-lg transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined mr-2">arrow_back</span>
+Back to Tool
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-12 relative z-10">
+<div class="flex flex-col items-center w-full px-6 py-8 max-w-4xl mx-auto border-t border-white/20 dark:border-white/5 gap-3">
+<div class="flex flex-col items-center gap-1">
+<span class="text-sm font-bold text-on-surface dark:text-white font-headline">Bulk Rename & Clean Tool</span>
+<p class="font-body text-xs text-on-surface-variant dark:text-slate-500 font-medium italic">Developed by praX</p>
+<p class="font-body text-xs text-slate-500 dark:text-slate-400">© 2024 Bulk Rename & Clean Tool. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 15;
+                const mx = (x - 0.5) * speed;
+                const my = (y - 0.5) * speed;
+                shape.style.transform = `translate(${mx}px, ${my}px)`;
+            });
+        });
+    </script>
+<script src="script.js"></script>
+</body></html>

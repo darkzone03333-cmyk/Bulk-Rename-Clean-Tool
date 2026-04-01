@@ -145,7 +145,7 @@
 </div>
 <nav class="hidden md:flex items-center gap-6">
 <button class="text-primary dark:text-inverse-primary font-bold text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors">Editor</button>
-<button class="text-on-surface-variant dark:text-slate-400 text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors">Help</button>
+<button onclick="window.open('help.html', '_blank')" class="text-on-surface-variant dark:text-slate-400 text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors cursor-pointer">Help</button>
 </nav>
 <div class="flex items-center gap-3">
 <button id="darkModeToggle" class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 dark:hover:bg-white/5 transition-colors text-on-surface-variant dark:text-slate-300" title="Toggle dark mode">
@@ -379,4 +379,5 @@
             });
         });
     </script>
-</body></html>
+    <script src="script.js"></script>
+    </body></html>
