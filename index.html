@@ -1,329 +1,338 @@
+<!-- Bulk Rename & Clean Tool (Button Fix) -->
 <!DOCTYPE html>
-<html class="light" lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-surface": "#0d1c2e",
-                        "inverse-primary": "#c3c0ff",
-                        "on-tertiary": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#713700",
-                        "on-tertiary-container": "#ffc7a2",
-                        "secondary": "#006a61",
-                        "primary-container": "#493fdf",
-                        "tertiary-container": "#8f4700",
-                        "outline-variant": "#c5c5d4",
-                        "outline": "#757684",
-                        "tertiary-fixed": "#ffdcc6",
-                        "on-primary-fixed-variant": "#3323cc",
-                        "surface-container-low": "#eff4ff",
-                        "surface-container-lowest": "#ffffff",
-                        "surface": "#f8f9ff",
-                        "surface-container": "#e6eeff",
-                        "error": "#ba1a1a",
-                        "surface-variant": "#d5e3fc",
-                        "primary-fixed": "#e2dfff",
-                        "surface-dim": "#ccdbf3",
-                        "inverse-surface": "#233144",
-                        "primary": "#2f1bc8",
-                        "tertiary-fixed-dim": "#ffb784",
-                        "on-secondary": "#ffffff",
-                        "background": "#f8f9ff",
-                        "on-background": "#0d1c2e",
-                        "surface-container-high": "#dce9ff",
-                        "secondary-fixed": "#89f5e7",
-                        "surface-tint": "#4d44e3",
-                        "on-primary-fixed": "#0f0069",
-                        "on-primary-container": "#d0cdff",
-                        "on-tertiary-fixed": "#301400",
-                        "on-surface-variant": "#454652",
-                        "secondary-container": "#86f2e4",
-                        "secondary-fixed-dim": "#6bd8cb",
-                        "on-secondary-container": "#006f66",
-                        "surface-container-highest": "#d5e3fc",
-                        "inverse-on-surface": "#eaf1ff",
-                        "surface-bright": "#f8f9ff",
-                        "tertiary": "#6c3400",
-                        "on-secondary-fixed-variant": "#005049",
-                        "primary-fixed-dim": "#c3c0ff",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed": "#00201d",
-                        "on-error": "#ffffff"
-                    },
-                    fontFamily: {
-                        "headline": ["Manrope"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-                },
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#0d1c2e",
+              "inverse-primary": "#c3c0ff",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#713700",
+              "on-tertiary-container": "#ffc7a2",
+              "secondary": "#006a61",
+              "primary-container": "#493fdf",
+              "tertiary-container": "#8f4700",
+              "outline-variant": "#c5c5d4",
+              "outline": "#757684",
+              "tertiary-fixed": "#ffdcc6",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f8f9ff",
+              "surface-container": "#e6eeff",
+              "error": "#ba1a1a",
+              "surface-variant": "#d5e3fc",
+              "primary-fixed": "#e2dfff",
+              "surface-dim": "#ccdbf3",
+              "inverse-surface": "#233144",
+              "primary": "#2f1bc8",
+              "tertiary-fixed-dim": "#ffb784",
+              "on-secondary": "#ffffff",
+              "background": "#f8f9ff",
+              "on-background": "#0d1c2e",
+              "surface-container-high": "#dce9ff",
+              "secondary-fixed": "#89f5e7",
+              "surface-tint": "#4d44e3",
+              "on-primary-fixed": "#0f0069",
+              "on-primary-container": "#d0cdff",
+              "on-tertiary-fixed": "#301400",
+              "on-surface-variant": "#454652",
+              "secondary-container": "#86f2e4",
+              "secondary-fixed-dim": "#6bd8cb",
+              "on-secondary-container": "#006f66",
+              "surface-container-highest": "#d5e3fc",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-bright": "#f8f9ff",
+              "tertiary": "#6c3400",
+              "on-secondary-fixed-variant": "#005049",
+              "primary-fixed-dim": "#c3c0ff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed": "#00201d",
+              "on-error": "#ffffff"
             },
-        }
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
     </script>
-    <style>
+<style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        
         .glass-panel {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.05);
         }
         .dark .glass-panel {
-            background: rgba(13, 28, 46, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* Custom Dark Mode Overrides for High Contrast Sleek Look */
+
+        .shape-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to));
+            filter: blur(60px);
+            opacity: 0.5;
+            border-radius: 40%;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(30px, -50px) rotate(120deg) scale(1.1); }
+            66% { transform: translate(-20px, 20px) rotate(240deg) scale(0.9); }
+        }
+
         .dark body {
-            background-color: #050a11;
+            background-color: #020617;
             color: #f8f9ff;
         }
-        .dark .bg-surface-container-low { background-color: #0d1c2e; }
-        .dark .bg-surface-container-lowest { background-color: #1a293d; }
-        .dark .bg-surface-container { background-color: #122135; }
-        .dark .text-on-surface { color: #f8f9ff; }
-        .dark .text-on-surface-variant { color: #94a3b8; }
-        .dark .border-outline-variant { border-color: #334155; }
-        .dark .divide-surface-container-low > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b; }
-        .dark .bg-surface-container-high { background-color: #1e293b; }
-        /* Drag and drop styles */
-        .dragging {
-            opacity: 0.5;
-            transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { 
+            background: rgba(47, 27, 200, 0.2); 
+            border-radius: 10px; 
         }
-        .drag-handle {
-            cursor: grab;
-        }
-        .drag-handle:active {
-            cursor: grabbing;
-        }
-        /* Progress bar animation */
-        .progress-bar-fill {
-            transition: width 0.3s ease;
-        }
-        /* Notification animations */
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        .notification {
-            animation: slideIn 0.3s ease;
-        }
-        .notification.hiding {
-            animation: slideOut 0.3s ease;
-        }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(195, 192, 255, 0.1); }
     </style>
 </head>
-<body class="bg-surface font-body text-on-surface antialiased transition-colors duration-300">
-<!-- TopApp Bar -->
-<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center w-full px-10 py-4 top-0 sticky z-50 border-b border-slate-200/50 dark:border-slate-800/50 transition-colors">
-    <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary dark:text-inverse-primary" style="font-variation-settings: 'FILL' 1;">architecture</span>
-        <span class="text-xl font-bold tracking-tight text-on-surface dark:text-white font-headline">Bulk Rename & Clean Tool</span>
-    </div>
-    <nav class="hidden md:flex items-center gap-8">
-        <button class="text-primary dark:text-inverse-primary font-bold font-label hover:bg-primary/10 px-3 py-1 rounded-xl transition-colors">Editor</button>
-        <button class="text-on-surface-variant dark:text-slate-400 font-label hover:bg-primary/10 px-3 py-1 rounded-xl transition-colors">Help</button>
-    </nav>
-    <div class="flex items-center gap-4">
-        <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-variant dark:hover:bg-slate-800 transition-colors text-on-surface-variant dark:text-slate-300" title="Toggle dark mode">
-            <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
-            <span class="material-symbols-outlined hidden dark:block">light_mode</span>
-        </button>
-    </div>
+<body class="bg-surface font-body text-on-surface antialiased transition-colors duration-300 relative">
+<!-- Background 3D Elements -->
+<div class="shape-container">
+<div class="shape w-[500px] h-[500px] -top-20 -left-20 from-primary/20 to-secondary/20"></div>
+<div class="shape w-[400px] h-[400px] top-1/2 -right-20 from-primary-container/20 to-inverse-primary/20" style="animation-delay: -5s; animation-duration: 30s;"></div>
+<div class="shape w-[250px] h-[250px] bottom-20 left-1/4 from-secondary/15 to-primary/15" style="animation-delay: -12s; animation-duration: 20s;"></div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-white/30 dark:bg-slate-950/40 backdrop-blur-xl flex justify-between items-center w-full px-6 py-2.5 top-0 sticky z-50 border-b border-white/30 dark:border-white/10 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-xl" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="text-lg font-bold tracking-tight text-on-surface dark:text-white font-headline">Bulk Rename & Clean Tool</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<button class="text-primary dark:text-inverse-primary font-bold text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors">Editor</button>
+<button class="text-on-surface-variant dark:text-slate-400 text-sm font-label hover:bg-primary/10 px-2.5 py-1 rounded-lg transition-colors">Help</button>
+</nav>
+<div class="flex items-center gap-3">
+<button id="darkModeToggle" class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 dark:hover:bg-white/5 transition-colors text-on-surface-variant dark:text-slate-300" title="Toggle dark mode">
+<span class="material-symbols-outlined text-xl block dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
+</button>
+</div>
 </header>
-
-<main class="max-w-7xl mx-auto px-6 md:px-10 py-12">
-    <div class="flex flex-col gap-10">
-        <!-- Hero / Header Section -->
-        <section class="text-center space-y-4">
-            <h1 class="text-5xl md:text-6xl font-extrabold font-headline tracking-tight text-on-surface dark:text-white">
-                Digital <span class="text-primary dark:text-inverse-primary">Curation</span> Made Simple.
-            </h1>
-            <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto text-lg">
-                High-performance batch renaming and file cleaning. Precision tools for the organized professional.
-            </p>
-        </section>
-
-        <!-- Main Workspace Bento Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- Upload Zone (Bento Primary) -->
-            <div class="lg:col-span-8 group">
-                <div id="dropZone" class="relative h-full min-h-[400px] bg-surface-container-low dark:bg-[#0d1c2e] rounded-xl flex flex-col items-center justify-center p-8 transition-all hover:bg-secondary-container/10 dark:hover:bg-primary/5 border-2 border-dashed border-outline-variant dark:border-slate-700 hover:border-secondary dark:hover:border-inverse-primary overflow-hidden cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="z-10 flex flex-col items-center text-center">
-                        <div class="w-20 h-20 rounded-full bg-primary-fixed dark:bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary dark:text-inverse-primary text-4xl" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
-                        </div>
-                        <h3 class="text-2xl font-bold font-headline mb-2 dark:text-white">Drop your files here</h3>
-                        <p class="text-on-surface-variant dark:text-slate-400 font-label mb-8">Supports images, documents, and directories. Maximum 500 files at once.</p>
-                        <button class="bg-primary dark:bg-inverse-primary text-on-primary dark:text-primary-fixed-dim px-8 py-3 rounded-xl font-bold hover:bg-primary-container dark:hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/20">
-                            Select Files
-                        </button>
-                        <input type="file" id="fileInput" multiple accept="*/*" class="hidden"/>
-                        <p class="text-sm text-on-surface-variant dark:text-slate-400 mt-4" id="fileCount">No files selected</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Config Panel (Bento Side) -->
-            <div class="lg:col-span-4 space-y-6">
-                <div class="glass-panel p-6 rounded-xl bg-surface-container dark:bg-slate-900/50 shadow-sm border border-white/10 dark:border-slate-800">
-                    <h4 class="font-headline font-bold text-lg mb-6 flex items-center gap-2 dark:text-white">
-                        <span class="material-symbols-outlined text-primary dark:text-inverse-primary">tune</span>
-                        Configuration
-                    </h4>
-                    <div class="space-y-6">
-                        <!-- Base Filename Input -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant dark:text-slate-500 font-label">Base Filename</label>
-                            <input type="text" id="baseName" class="w-full bg-surface-container-lowest dark:bg-slate-950 border-none rounded-lg p-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary dark:focus:ring-inverse-primary transition-all placeholder:text-outline-variant" placeholder="e.g. Project_Asset_2024" value="Holi_Trip"/>
-                        </div>
-
-                        <!-- Date Format Select -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant dark:text-slate-500 font-label">Add Date/Time</label>
-                            <select id="dateFormat" class="w-full bg-surface-container-lowest dark:bg-slate-950 border-none rounded-lg p-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary dark:focus:ring-inverse-primary transition-all appearance-none cursor-pointer">
-                                <option value="">None</option>
-                                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
-                                <option value="DD-MM-YYYY">DD-MM-YYYY</option>
-                                <option value="MM-DD-YYYY">MM-DD-YYYY</option>
-                                <option value="timestamp">Timestamp (HHMMSS)</option>
-                                <option value="datetime">Full DateTime</option>
-                            </select>
-                        </div>
-
-                        <!-- File Filter Select -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant dark:text-slate-500 font-label">Filter by Type</label>
-                            <select id="fileFilter" class="w-full bg-surface-container-lowest dark:bg-slate-950 border-none rounded-lg p-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary dark:focus:ring-inverse-primary transition-all appearance-none cursor-pointer">
-                                <option value="all">All Files</option>
-                                <option value="images">Images</option>
-                                <option value="videos">Videos</option>
-                                <option value="documents">Documents</option>
-                                <option value="audio">Audio</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <!-- Sort By Select -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant dark:text-slate-500 font-label">Sort Files</label>
-                            <select id="sortBy" class="w-full bg-surface-container-lowest dark:bg-slate-950 border-none rounded-lg p-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary dark:focus:ring-inverse-primary transition-all appearance-none cursor-pointer">
-                                <option value="original">Original Order</option>
-                                <option value="name-asc">Name (A-Z)</option>
-                                <option value="name-desc">Name (Z-A)</option>
-                                <option value="size-asc">Size (Small to Large)</option>
-                                <option value="size-desc">Size (Large to Small)</option>
-                                <option value="type">File Type</option>
-                            </select>
-                        </div>
-
-                        <hr class="border-outline-variant/20 dark:border-slate-800"/>
-
-                        <!-- Case Conversion Buttons -->
-                        <div class="grid grid-cols-2 gap-3">
-                            <button id="uppercaseBtn" class="bg-surface-container-high dark:bg-slate-800 hover:bg-surface-variant dark:hover:bg-slate-700 text-on-surface-variant dark:text-slate-300 p-3 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2" disabled>
-                                <span class="material-symbols-outlined text-sm">uppercase</span>
-                                UPPER
+<main class="max-w-6xl mx-auto px-4 md:px-6 py-8 relative z-10">
+<div class="flex flex-col gap-10">
+<!-- Hero Section -->
+<section class="text-center space-y-3 pt-4">
+<h1 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-on-surface dark:text-white leading-tight">
+                    Digital <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:from-inverse-primary dark:to-secondary-fixed">Curation</span> Made Simple.
+                </h1>
+<p class="text-on-surface-variant dark:text-slate-400 max-w-xl mx-auto text-base font-medium">
+                    High-performance batch renaming and file cleaning. Precision tools for the organized professional.
+                </p>
+</section>
+<!-- Main Workspace Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+<!-- Upload Zone -->
+<div class="lg:col-span-8 group">
+<div id="dropZone" class="glass-panel relative h-full min-h-[300px] rounded-2xl flex flex-col items-center justify-center p-6 transition-all hover:scale-[1.002] overflow-hidden cursor-pointer" onclick="document.getElementById('fileInput').click()">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="z-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/20 backdrop-blur-md flex items-center justify-center mb-4 group-hover:scale-105 transition-transform shadow-inner border border-primary/5">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-1.5 dark:text-white">Drop your files here</h3>
+<p class="text-on-surface-variant dark:text-slate-400 font-label mb-6 text-sm">Supports images, documents, and directories.</p>
+<button id="selectFilesBtn" class="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:brightness-110 hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-95 shadow-md text-sm" onclick="document.getElementById('fileInput').click()">
+                                Select Files
                             </button>
-                            <button id="lowercaseBtn" class="bg-surface-container-high dark:bg-slate-800 hover:bg-surface-variant dark:hover:bg-slate-700 text-on-surface-variant dark:text-slate-300 p-3 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2" disabled>
-                                <span class="material-symbols-outlined text-sm">lowercase</span>
-                                lower
-                            </button>
-                        </div>
-
-                        <!-- Primary Action Buttons -->
-                        <div class="space-y-3 pt-2">
-                            <button id="renameBtn" class="w-full bg-gradient-to-r from-primary to-primary-container dark:from-indigo-600 dark:to-primary text-on-primary py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/10 hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-3" disabled>
-                                <span class="material-symbols-outlined">auto_fix_high</span>
-                                Rename Files
-                            </button>
-                            <button id="downloadBtn" class="w-full bg-secondary-fixed dark:bg-emerald-600/20 dark:text-emerald-400 dark:border dark:border-emerald-500/30 text-on-secondary-fixed py-4 rounded-xl font-bold text-lg hover:bg-secondary-fixed-dim dark:hover:bg-emerald-600/30 transition-all active:scale-95 flex items-center justify-center gap-3" disabled>
-                                <span class="material-symbols-outlined">folder_zip</span>
-                                Download ZIP
-                            </button>
-                        </div>
-
-                        <!-- Secondary Actions -->
-                        <div class="grid grid-cols-2 gap-3 pt-2">
-                            <button id="undoBtn" class="bg-surface-container-high dark:bg-slate-800 hover:bg-surface-variant dark:hover:bg-slate-700 text-on-surface-variant dark:text-slate-300 p-3 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2" disabled>
-                                <span class="material-symbols-outlined text-sm">undo</span>
-                                Undo
-                            </button>
-                            <button id="resetBtn" class="bg-surface-container-high dark:bg-slate-800 hover:bg-red-500/10 dark:hover:bg-red-500/20 text-on-surface-variant dark:text-slate-300 p-3 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2 hover:text-red-500 dark:hover:text-red-400" disabled>
-                                <span class="material-symbols-outlined text-sm">delete</span>
-                                Reset
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Status Summary -->
-                <div class="bg-surface-container-low dark:bg-slate-900/50 p-6 rounded-xl border border-outline-variant/10 dark:border-slate-800">
-                    <div class="flex justify-between items-center text-sm font-medium text-on-surface-variant dark:text-slate-400">
-                        <span>Ready to process</span>
-                        <span class="text-primary dark:text-inverse-primary font-bold" id="fileCountStatus">0 Files Selected</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Preview Table (Bento Bottom) -->
-            <div class="lg:col-span-12">
-                <div class="bg-surface-container-lowest dark:bg-[#1a293d] rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-slate-800">
-                    <div class="px-8 py-6 border-b border-surface-container-low dark:border-slate-800 flex justify-between items-center">
-                        <h4 class="font-headline font-bold text-xl dark:text-white">Preview Changes</h4>
-                        <div class="flex gap-2">
-                            <span class="bg-tertiary-fixed dark:bg-orange-950/40 text-on-tertiary-fixed dark:text-orange-400 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest border border-tertiary-fixed/50 dark:border-orange-500/30">Live Sync</span>
-                        </div>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead class="bg-surface-container-low dark:bg-slate-900/80">
-                                <tr>
-                                    <th class="px-8 py-4 font-label text-sm font-bold text-on-surface-variant dark:text-slate-400 w-12"></th>
-                                    <th class="px-8 py-4 font-label text-sm font-bold text-on-surface-variant dark:text-slate-400">Original Name</th>
-                                    <th class="px-8 py-4 font-label text-sm font-bold text-on-surface-variant dark:text-slate-400">
-                                        <div class="flex items-center gap-2">
-                                            New Name
-                                            <span class="material-symbols-outlined text-primary dark:text-inverse-primary text-sm">trending_flat</span>
-                                        </div>
-                                    </th>
-                                    <th class="px-8 py-4 font-label text-sm font-bold text-on-surface-variant dark:text-slate-400">Size</th>
-                                    <th class="px-8 py-4 font-label text-sm font-bold text-on-surface-variant dark:text-slate-400">Type</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody" class="divide-y divide-surface-container-low dark:divide-slate-800">
-                                <tr class="hover:bg-surface-container-low/50 dark:hover:bg-slate-800/50 transition-colors">
-                                    <td colspan="5" class="px-8 py-12 text-center text-on-surface-variant dark:text-slate-400 italic">
-                                        No files uploaded yet. Drop files or click "Select Files" to begin.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <input type="file" id="fileInput" multiple accept="*/*" class="hidden"/>
+                            <p class="text-sm text-on-surface-variant dark:text-slate-400 mt-4" id="fileCount">No files selected</p>
+</div>
+</div>
+</div>
+<!-- Config Panel -->
+<div class="lg:col-span-4 space-y-4">
+<div class="glass-panel p-5 rounded-2xl">
+<h4 class="font-headline font-bold text-lg mb-5 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-xl">tune</span>
+                            Configuration
+                        </h4>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant dark:text-slate-500 font-label ml-1">Base Filename</label>
+<input id="baseName" type="text" class="w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-lg p-2.5 text-sm text-on-surface dark:text-white focus:ring-1 focus:ring-primary dark:focus:ring-inverse-primary transition-all placeholder:text-outline-variant outline-none" placeholder="e.g. Project_Asset_2024" value="Holi_Trip"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant dark:text-slate-500 font-label ml-1">Add Date/Time</label>
+<select id="dateFormat" class="w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-lg p-2.5 text-sm text-on-surface dark:text-white focus:ring-1 focus:ring-primary dark:focus:ring-inverse-primary transition-all outline-none cursor-pointer">
+<option value="">None</option>
+<option value="YYYY-MM-DD">YYYY-MM-DD</option>
+<option value="DD-MM-YYYY">DD-MM-YYYY</option>
+<option value="MM-DD-YYYY">MM-DD-YYYY</option>
+<option value="timestamp">Timestamp (HHMMSS)</option>
+<option value="datetime">Full DateTime</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant dark:text-slate-500 font-label ml-1">Filter by Type</label>
+<select id="fileFilter" class="w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-lg p-2.5 text-sm text-on-surface dark:text-white focus:ring-1 focus:ring-primary dark:focus:ring-inverse-primary transition-all outline-none cursor-pointer">
+<option value="all">All Files</option>
+<option value="images">Images</option>
+<option value="videos">Videos</option>
+<option value="documents">Documents</option>
+<option value="audio">Audio</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant dark:text-slate-500 font-label ml-1">Sort Files</label>
+<select id="sortBy" class="w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-lg p-2.5 text-sm text-on-surface dark:text-white focus:ring-1 focus:ring-primary dark:focus:ring-inverse-primary transition-all outline-none cursor-pointer">
+<option value="original">Original Order</option>
+<option value="name-asc">Name (A-Z)</option>
+<option value="name-desc">Name (Z-A)</option>
+<option value="size-asc">Size (Small to Large)</option>
+<option value="size-desc">Size (Large to Small)</option>
+<option value="type">File Type</option>
+</select>
+</div>
+<hr class="border-outline-variant/20 dark:border-white/10 my-4"/>
+<div class="grid grid-cols-2 gap-3">
+<button id="uppercaseBtn" class="bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-700/60 text-on-surface-variant dark:text-slate-300 p-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 border border-white/30 dark:border-white/10" disabled>
+<span class="material-symbols-outlined text-[14px]">uppercase</span>
+                                    UPPER
+                                </button>
+<button id="lowercaseBtn" class="bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-700/60 text-on-surface-variant dark:text-slate-300 p-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 border border-white/30 dark:border-white/10" disabled>
+<span class="material-symbols-outlined text-[14px]">lowercase</span>
+                                    lower
+                                </button>
+</div>
+<div class="space-y-3 pt-2">
+<button id="renameBtn" class="w-full bg-gradient-to-r from-primary to-primary-container dark:from-indigo-600 dark:to-primary text-on-primary py-3 rounded-xl font-bold text-sm shadow-md shadow-primary/10 hover:translate-y-[-1px] transition-all active:translate-y-0 flex items-center justify-center gap-2" disabled>
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+                                    Rename Files
+                                </button>
+<button id="downloadBtn" class="w-full bg-white/20 dark:bg-emerald-600/10 dark:text-emerald-400 border border-white/30 dark:border-emerald-500/30 text-on-surface py-2.5 rounded-xl font-bold text-sm hover:bg-white/30 dark:hover:bg-emerald-600/20 transition-all active:scale-95 flex items-center justify-center gap-2 backdrop-blur-md" disabled>
+<span class="material-symbols-outlined text-lg">folder_zip</span>
+                                    Download ZIP
+                                </button>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button id="undoBtn" class="bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-700/60 text-on-surface-variant dark:text-slate-300 p-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 border border-white/30 dark:border-white/10" disabled>
+<span class="material-symbols-outlined text-[14px]">undo</span>
+                                    Undo
+                                </button>
+<button id="resetBtn" class="bg-white/40 dark:bg-slate-800/40 hover:bg-red-500/10 dark:hover:bg-red-500/20 text-on-surface-variant dark:text-slate-300 p-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 border border-white/30 dark:border-white/10 hover:text-red-500 dark:hover:text-red-400" disabled>
+<span class="material-symbols-outlined text-[14px]">delete</span>
+                                    Reset
+                                </button>
+</div>
+</div>
+</div>
+<!-- Status Summary -->
+<div class="glass-panel p-4 rounded-xl">
+<div class="flex justify-between items-center text-xs font-semibold text-on-surface-variant dark:text-slate-400">
+<span>Ready to process</span>
+<span id="fileCountStatus" class="text-primary dark:text-inverse-primary bg-primary/10 dark:bg-primary/20 px-2 py-0.5 rounded text-[10px]">0 Files Selected</span>
+</div>
+</div>
+</div>
+<!-- Preview Table -->
+<div class="lg:col-span-12">
+<div class="glass-panel rounded-2xl overflow-hidden">
+<div class="px-6 py-4 border-b border-white/20 dark:border-white/10 flex justify-between items-center bg-white/10 dark:bg-slate-900/20">
+<h4 class="font-headline font-bold text-xl dark:text-white">Preview Changes</h4>
+<div class="flex gap-2">
+<span class="bg-tertiary-fixed dark:bg-orange-500/20 text-on-tertiary-fixed dark:text-orange-400 text-[9px] font-extrabold px-2 py-1 rounded-full uppercase tracking-widest border border-tertiary-fixed/50 dark:border-orange-500/30">Live Sync</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-white/20 dark:bg-slate-900/40">
+<tr>
+<th class="px-6 py-3 font-label text-[10px] font-bold text-on-surface-variant dark:text-slate-400 uppercase tracking-wider">Original Name</th>
+<th class="px-6 py-3 font-label text-[10px] font-bold text-on-surface-variant dark:text-slate-400 uppercase tracking-wider">
+<div class="flex items-center gap-1.5">
+                                                New Name
+                                                <span class="material-symbols-outlined text-primary dark:text-inverse-primary text-[14px]">trending_flat</span>
+</div>
+</th>
+<th class="px-6 py-3 font-label text-[10px] font-bold text-on-surface-variant dark:text-slate-400 text-right uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody id="tableBody" class="divide-y divide-white/20 dark:divide-white/10">
+<tr class="hover:bg-white/20 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-3.5 font-body text-xs text-on-surface dark:text-slate-200">IMG_8422_raw_final_v2.jpg</td>
+<td class="px-6 py-3.5 font-body text-xs font-bold text-primary dark:text-inverse-primary">Asset_001.jpg</td>
+<td class="px-6 py-3.5 text-right">
+<span class="inline-flex items-center gap-1 text-secondary dark:text-emerald-400 font-bold text-[9px] uppercase bg-secondary/10 dark:bg-emerald-400/10 px-2 py-0.5 rounded-full border border-secondary/20 dark:border-emerald-400/20">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                                                Valid
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-white/20 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-3.5 font-body text-xs text-on-surface dark:text-slate-200">screenshot_2023_10_12_0911.png</td>
+<td class="px-6 py-3.5 font-body text-xs font-bold text-primary dark:text-inverse-primary">Asset_002.png</td>
+<td class="px-6 py-3.5 text-right">
+<span class="inline-flex items-center gap-1 text-secondary dark:text-emerald-400 font-bold text-[9px] uppercase bg-secondary/10 dark:bg-emerald-400/10 px-2 py-0.5 rounded-full border border-secondary/20 dark:border-emerald-400/20">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                                                Valid
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-white/20 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-3.5 font-body text-xs text-on-surface dark:text-slate-200">document_scan_backup_july.pdf</td>
+<td class="px-6 py-3.5 font-body text-xs font-bold text-primary dark:text-inverse-primary">Asset_003.pdf</td>
+<td class="px-6 py-3.5 text-right">
+<span class="inline-flex items-center gap-1 text-tertiary dark:text-orange-400 font-bold text-[9px] uppercase bg-tertiary/10 dark:bg-orange-400/10 px-2 py-0.5 rounded-full border border-tertiary/20 dark:border-orange-400/20">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+                                                Duplicate
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </main>
-
 <!-- Progress Bar (Hidden by default) -->
 <div id="progressContainer" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-white dark:bg-slate-900 border border-outline-variant dark:border-slate-700 rounded-full shadow-2xl p-4 z-50 transition-all duration-300 opacity-0 pointer-events-none" style="min-width: 400px;">
     <div class="flex items-center gap-4">
@@ -333,37 +342,41 @@
         <span id="progressText" class="text-sm font-semibold text-on-surface dark:text-white min-w-[120px] text-right">Processing...</span>
     </div>
 </div>
-
 <!-- Footer -->
-<footer class="bg-slate-50 dark:bg-slate-950 mt-20 transition-colors">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full px-10 py-12 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800/50 gap-8">
-        <div class="flex flex-col items-center md:items-start gap-2">
-            <span class="text-sm font-semibold text-on-surface dark:text-white font-headline">Bulk Rename & Clean Tool</span>
-            <p class="font-body text-xs text-on-surface-variant dark:text-slate-500 italic mb-1">Developed by praX</p>
-            <p class="font-body text-sm text-slate-500 dark:text-slate-400">© 2024 Bulk Rename & Clean Tool. All rights reserved.</p>
-        </div>
-        <div class="flex gap-8">
-            <a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-sm font-medium" href="#">Documentation</a>
-            <a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-sm font-medium" href="#">Privacy Policy</a>
-            <a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-sm font-medium" href="#">Support</a>
-        </div>
-        <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-lg bg-surface-container dark:bg-slate-900 flex items-center justify-center text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer border border-transparent dark:border-slate-800">
-                <span class="material-symbols-outlined text-xl">share</span>
-            </div>
-            <div class="w-8 h-8 rounded-lg bg-surface-container dark:bg-slate-900 flex items-center justify-center text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer border border-transparent dark:border-slate-800">
-                <span class="material-symbols-outlined text-xl">terminal</span>
-            </div>
-        </div>
-    </div>
+<footer class="mt-12 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-8 max-w-6xl mx-auto border-t border-white/20 dark:border-white/5 gap-6">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="text-base font-bold text-on-surface dark:text-white font-headline">Bulk Rename & Clean Tool</span>
+<p class="font-body text-[11px] text-on-surface-variant dark:text-slate-500 font-medium italic">Developed by praX</p>
+<p class="font-body text-[11px] text-slate-500 dark:text-slate-400">© 2024 Bulk Rename & Clean Tool. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-xs font-bold" href="#">Documentation</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-xs font-bold" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-colors text-xs font-bold" href="#">Support</a>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-lg bg-white/30 dark:bg-slate-900/50 flex items-center justify-center text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-all cursor-pointer border border-white/20 dark:border-white/10 shadow-sm backdrop-blur-md">
+<span class="material-symbols-outlined text-lg">share</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-white/30 dark:bg-slate-900/50 flex items-center justify-center text-on-surface-variant dark:text-slate-400 hover:text-primary dark:hover:text-inverse-primary transition-all cursor-pointer border border-white/20 dark:border-white/10 shadow-sm backdrop-blur-md">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</div>
+</div>
+</div>
 </footer>
-
 <script>
-    // Initialize dark mode based on preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // document.documentElement.classList.add('dark'); // Uncomment to auto-detect system dark mode
-    }
-</script>
-<script src="script.js"></script>
-</body>
-</html>
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 15;
+                const mx = (x - 0.5) * speed;
+                const my = (y - 0.5) * speed;
+                shape.style.transform = `translate(${mx}px, ${my}px)`;
+            });
+        });
+    </script>
+</body></html>
